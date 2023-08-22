@@ -43,15 +43,20 @@ module.exports = {
             // and its module definition is "remoteEntry.js".
             remotes: {
                 // a remote 'Header' from the url '<http://localhost:3001/remoteEntry.js>'
-                "HeaderApp": "HeaderApp@http://localhost:3001/remoteEntry.js",  
+                "HeaderApp": "HeaderApp@http://localhost:3001/remoteEntry.js",
+                // the components from the url '<http://localhost:3001/remoteEntry.js>'
+                'component-app': 'component_app@http://localhost:3002/remoteEntry.js',
             },
+            // libraries which should be shared accros all micro frontends
             shared: {
                 ...dependencies,
                 react: {
+                    // react library in this specific version is only allowed to be executed once
                   singleton: true,
                   requiredVersion: dependencies["react"],
                 },
                 "react-dom": {
+                    // react-dom library in this specific version is only allowed to be executed once
                   singleton: true,
                   requiredVersion: dependencies["react-dom"],
                 },
